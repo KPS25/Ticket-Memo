@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Ticket Memo</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="tv_ticket">Ticket</string>
+    <string name="tv_ticketStartNo">Start No</string>
+    <string name="tv_ticketEndNo">End No</string>
+    <string name="tv_ticketSell">Sell</string>
+    <string name="tv_ticketAmount">Amount</string>
+
+    <string name="tv_totalAmount">Total Amount: </string>
+</resources>
