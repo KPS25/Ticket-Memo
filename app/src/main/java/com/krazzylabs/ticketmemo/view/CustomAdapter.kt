@@ -24,7 +24,7 @@ class CustomAdapter( val tickets: MutableList<Ticket>): RecyclerView.Adapter<Cus
     //this method is binding the data on the list
     override fun onBindViewHolder(holder: CustomAdapter.ViewHolder, position: Int) {
         holder.bindItems(tickets[position], position)
-        holder.setIsRecyclable(false);
+        holder.setIsRecyclable(false)
     }
 
     //this method is giving the size of the list
@@ -55,6 +55,12 @@ class CustomAdapter( val tickets: MutableList<Ticket>): RecyclerView.Adapter<Cus
                     }else
                         ticket.ticketStartNo = 0
 
+                    if(!itemView.et_ticketEndNo.text.toString().equals("")) {
+                        ticket.ticketEndNo = itemView.et_ticketEndNo.text.toString().toInt()
+                    }else
+                        ticket.ticketEndNo = 0
+
+
                     ticket.compute()
                     itemView.tv_ticketSell.text = ticket.ticketSell.toString()
                     itemView.tv_ticketAmount.text = ticket.ticketAmount.toString()
@@ -72,6 +78,11 @@ class CustomAdapter( val tickets: MutableList<Ticket>): RecyclerView.Adapter<Cus
                 }
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    if(!itemView.et_ticketStartNo.text.toString().equals("")) {
+                        ticket.ticketStartNo = itemView.et_ticketStartNo.text.toString().toInt()
+                    }else
+                        ticket.ticketStartNo = 0
+
                     if(!itemView.et_ticketEndNo.text.toString().equals("")) {
                         ticket.ticketEndNo = itemView.et_ticketEndNo.text.toString().toInt()
                     }else
@@ -81,7 +92,7 @@ class CustomAdapter( val tickets: MutableList<Ticket>): RecyclerView.Adapter<Cus
                     itemView.tv_ticketSell.text = ticket.ticketSell.toString()
                     itemView.tv_ticketAmount.text = ticket.ticketAmount.toString()
 
-                    Log.d("Kiran Item", position.toString())
+                    Log.d("Kiran", position.toString())
                     (mContext as MainActivity).updateTotalAmount(position, ticket)
 
                 }
